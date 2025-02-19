@@ -1,12 +1,13 @@
-// HomePage.tsx
+import { NavBar } from "../components/NavBar/NavBar";
 import { Carrusel } from "../components/Carrusel";
-import { Layout } from "../components/Layout";
+import { Footer } from "../components/Footer";
 
 export const HomePage = () => {
   return (
-    <Layout >
-      {/* Contenido de la página */}
-      <Carrusel />
-    </Layout>
+    <div>
+          <NavBar />
+          <Carrusel />
+          <Footer />
+        </div>
   );
 };

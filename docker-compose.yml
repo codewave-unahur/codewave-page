@@ -1,0 +1,21 @@
+
+
+services:
+  web:
+    build: .
+    container_name: codewave-web
+    ports:
+      - "3000:3000"  # Servidor interno en el contenedor, expuesto en el host
+    volumes:
+      - .:/app
+    command: ["pnpm", "dev"]
+
+  nginx:
+    image: nginx:alpine
+    container_name: codewave-nginx
+    ports:
+      - "8000:80"  # Exponer Nginx en el puerto 8000
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro  # Archivo de configuración de Nginx
+    depends_on:
+      - web
