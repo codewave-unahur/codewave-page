@@ -1,9 +1,10 @@
 import { NavBar } from "../components/NavBar/NavBar";
 import { Footer } from "../components/Footer";
-import { Carousel } from "../components/Carrusel/Carrusel";
+import { Carousel } from "../components/Carousel/Carousel";
 
 import imagen1 from "../assets/1.jpg";
 import imagen2 from "../assets/3.jpeg";
+import { Servicios } from "../components/Servicio/Servicios";
 
 const imagenes = [
   imagen1,
@@ -16,7 +17,7 @@ export const HomePage = () => {
       <NavBar />
       <main className="flex-1 pt-0.5">
         <Carousel images={imagenes} />
-
+        <Servicios />
       </main>
       <Footer />
     </div>
