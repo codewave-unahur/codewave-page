@@ -2,37 +2,70 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import slide1 from "../assets/1.jpg";
-import slide2 from "../assets/3.jpeg";
+interface CarouselProps {
+  images: string[];
+};
 
-// Lista de imágenes para el carrusel
-const images = [
-  { src: slide1, alt: "Descripción de la imagen 1" },
-  { src: slide2, alt: "Descripción de la imagen 2" },
-];
+const NextArrow = (props: any) => {
+  const { onClick, className, style } = props;
+  return (
+    <div
+      className={`${className} z-10`}
+      style={{ 
+        ...style, 
+        display: "block", 
+        right: "10px",
+        top: "50%",
+        transform: "translateY(-50%)",
+      }}
+      onClick={onClick}
+    >
+      <span className="text-2xl text-white">›</span>
+    </div>
+  );
+};
 
-export const Carrusel = () => {
+const PrevArrow = (props: any) => {
+  const { onClick, className, style } = props;
+  return (
+    <div
+      className={`${className} z-10`}
+      style={{ 
+        ...style, 
+        display: "block", 
+        left: "10px",
+        top: "50%",
+        transform: "translateY(-50%)",
+      }}
+      onClick={onClick}
+    >
+      <span className="text-10xl text-black">‹</span>
+    </div>
+  );
+};
+
+export const Carousel: React.FC<CarouselProps> = ({ images }) => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 100,
+    speed: 500,
+    autoplay: true,
+    autoplaySpeed: 3000,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 1000,
-    arrows: true, // Desactiva los botones de "Next" y "Previous"
-    fade: true, 
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
   };
 
   return (
-    <div className="relative w-full overflow-hidden pt-0.5"> {/* Asegura que el carrusel ocupe todo el ancho */}
+    <div className="bg-gray-200 w-full overflow-hidden aspect-[16/6]">
       <Slider {...settings}>
-        {images.map(({ src, alt }, index) => (
-          <div key={index} className="slick-slide">
+        {images.map((src, index) => (
+          <div key={index} className="w-full h-full">
             <img
               src={src}
-              alt={alt}
-              className="w-full h-auto object-contain sm:h-72 md:h-96 lg:h-[600px] xl:h-[700px] 2xl:h-[800px]"
+              alt={`Slide ${index}`}
+              className="w-full h-full object-cover"
             />
           </div>
         ))}
