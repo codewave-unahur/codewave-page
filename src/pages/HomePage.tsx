@@ -1,6 +1,6 @@
 import { NavBar } from "../components/NavBar/NavBar";
 import { Footer } from "../components/Footer";
-import { Carousel } from "../components/Carrusel";
+import { Carousel } from "../components/Carrusel/Carrusel";
 
 import imagen1 from "../assets/1.jpg";
 import imagen2 from "../assets/3.jpeg";
