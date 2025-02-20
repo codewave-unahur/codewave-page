@@ -1,18 +1,19 @@
 FROM node:20-alpine3.18 AS builder
 
-# Configurar directorio de trabajo
 WORKDIR /app
 
-# Copiar archivos de dependencias
 COPY pnpm-lock.yaml package.json ./
 
-# Instalar pnpm
 RUN npm install -g pnpm && pnpm install --frozen-lockfile
 
-# Copiar el resto del código
 COPY . .
 
-EXPOSE 5173
+RUN pnpm build
 
-# Construir la aplicación
-CMD ["pnpm", "dev"]
+FROM alpine:latest AS deploy
+
+WORKDIR /dist
+
+COPY --from=builder /app/dist /dist
+
+VOLUME [ "/dist" ]

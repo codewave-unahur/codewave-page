@@ -1,21 +1,23 @@
-
+version: "3.8"
 
 services:
-  web:
+  vite-build:
     build: .
-    container_name: codewave-web
-    ports:
-      - "3000:3000"  # Servidor interno en el contenedor, expuesto en el host
+    container_name: vite-builder
     volumes:
-      - .:/app
-    command: ["pnpm", "dev"]
+      - vite-dist:/dist
+    command: ["true"]  # Para que el contenedor no se quede ejecutando
 
   nginx:
     image: nginx:alpine
-    container_name: codewave-nginx
+    container_name: vite-nginx
     ports:
-      - "8000:80"  # Exponer Nginx en el puerto 8000
+      - "8089:80"
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro  # Archivo de configuración de Nginx
+      - vite-dist:/usr/share/nginx/html
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
     depends_on:
-      - web
+      - vite-build
+
+volumes:
+  vite-dist:
