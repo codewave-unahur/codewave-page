@@ -12,7 +12,7 @@ export const HomeCarouselContent: React.FC = () => {
     <FadeInSection> 
       <Carousel autoPlay={true}>
       {images.map((img, index) => (
-        <div key={index} className="w-full h-[800px] bg-sky-800">
+        <div key={index} className="w-full h-[600px] bg-sky-800">
           <img
             src={img}
             alt={`Slide ${index}`}

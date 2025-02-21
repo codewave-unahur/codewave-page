@@ -1,21 +1,17 @@
 import React from "react";
 import { Carousel } from "../Carousel/Carousel";
 import { productos } from "./ProductosData";
-import { Item } from "./Items";
+import { Item } from "../common/Items";
 import { FadeInSection } from "../common/FadeInSection";
+import { Section } from "../common/Secciones";
 
 export const Productos: React.FC = () => {
-
   return (
-    <FadeInSection> 
-      <section id="portfolio" className="bg-sky-800 py-12">
-      <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl text-center text-gray-200  font-bold mb-8">
-          PRODUCTOS
-        </h2>
+    <FadeInSection>
+      <Section id="portfolio" title="PRODUCTOS">
         <Carousel autoPlay={true} autoplaySpeed={3000}>
           {productos.map((item) => (
-            <div key={item.id} className="px-4 flex justify-center sm:w-auto">
+            <div key={item.id} className="w-full flex justify-center items-center">
               <Item
                 nombre={item.nombre}
                 descripcion={item.descripcion}
@@ -24,10 +20,7 @@ export const Productos: React.FC = () => {
             </div>
           ))}
         </Carousel>
-      </div>
-    </section>
+      </Section>
     </FadeInSection>
-
-    
   );
 };
