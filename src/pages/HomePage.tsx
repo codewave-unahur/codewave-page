@@ -1,23 +1,17 @@
 import { NavBar } from "../components/NavBar/NavBar";
 import { Footer } from "../components/Footer";
-import { Carousel } from "../components/Carousel/Carousel";
-
-import imagen1 from "../assets/1.jpg";
-import imagen2 from "../assets/3.jpeg";
-import { Servicios } from "../components/Servicio/Servicios";
-
-const imagenes = [
-  imagen1,
-  imagen2,
-]
+import { Servicios } from "../components/Servicios/Servicios";
+import { Productos } from "../components/Productos/Productos";
+import { HomeCarouselContent } from "../components/Carousel/HomeCarousel";
 
 export const HomePage = () => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-sky-800">
       <NavBar />
-      <main className="flex-1 pt-0.5">
-        <Carousel images={imagenes} />
+      <main className="flex-1 pt-0">
+        <HomeCarouselContent />
         <Servicios />
+        <Productos />
       </main>
       <Footer />
     </div>

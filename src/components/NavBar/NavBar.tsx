@@ -5,7 +5,7 @@ import { MobileMenu } from "./MobilMenu";
 import { navItems } from "./NavItem";
 import { Logo } from "../Logo";
 
-import logo from "../../assets/logo.png"
+import logo from "../../assets/logos/logo.png"
 
 export const NavBar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);

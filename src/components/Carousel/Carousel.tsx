@@ -4,48 +4,31 @@ import "slick-carousel/slick/slick-theme.css";
 import { NextArrow, PrevArrow } from "./Arrow";
 
 interface CarouselProps {
-  images: string[];
-  slidesToShow?: number;
-  slidesToScroll?: number;
-  autoplay?: boolean;
+  children: React.ReactNode;
+  autoPlay?: boolean;
   autoplaySpeed?: number;
 }
 
 export const Carousel: React.FC<CarouselProps> = ({
-  images,
-  slidesToShow = 1,
-  slidesToScroll = 1,
-  autoplay = true,
+  children,
+  autoPlay = false,
   autoplaySpeed = 3000,
 }) => {
   const settings = {
     dots: true,
     infinite: true,
     speed: 800,
-    autoplay,
+    autoPlay,
     autoplaySpeed,
-    slidesToShow,
-    slidesToScroll,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
   };
 
   return (
-    <div className="relative bg-gray-200 w-full overflow-hidden aspect-[16/6] rounded-lg shadow-lg">
+    <div className="relative bg-transparent w-full overflow-hidden 
+      rounded-lg">
       <Slider {...settings}>
-        {images.map((src, index) => (
-          <div key={index} className="w-full h-full relative">
-            <img
-              src={src}
-              alt={`Slide ${index}`}
-              className="w-full h-full object-cover rounded-lg 
-                transition-opacity duration-700 
-                opacity-100 slick-active:opacity-100 
-                slick-active:backdrop-blur-0 
-                backdrop-blur-sm"
-            />
-          </div>
-        ))}
+        {children}
       </Slider>
     </div>
   );
