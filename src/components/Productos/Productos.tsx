@@ -1,6 +1,6 @@
 import React from "react";
 import { Carousel } from "../Carousel/Carousel";
-import { productos } from "./ProductosData";
+import { productos } from "../../utils/ProductosData";
 import { Item } from "../common/Items";
 import { FadeInSection } from "../common/FadeInSection";
 import { Section } from "../common/Secciones";

@@ -6,7 +6,7 @@ export interface ItemProps {
 
 export const Item: React.FC<ItemProps> = ({ nombre, descripcion, image }) => {
   return (
-    <div className="w-full sm:w-72 h-[400px] mx-auto bg-sky-800 
+    <div className="w-full sm:w-72 h-[400px] mx-auto 
       p-6 rounded-lg shadow-lg flex flex-col justify-between 
       items-center border-2 border-transparent 
       hover:border-white transition duration-300 box-border"

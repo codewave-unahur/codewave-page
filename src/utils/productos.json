@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "nombre": "ACRONIS",
+    "descripcion": "Solución centralizada de seguridad.",
+    "imagen": "depatas.png"
+  },
+  {
+    "id": 2,
+    "nombre": "NAWAIAM",
+    "descripcion": "Nawaiam es un videojuego disruptivo que genera un perfil conductual basado en las decisiones tomadas en el juego.",
+    "imagen": "nawaiam.png"
+  },
+  {
+    "id": 3,
+    "nombre": "eCommerce",
+    "descripcion": "La solución rápida y eficiente para su negocio online.",
+    "imagen": "ecommerce.png"
+  },
+  {
+    "id": 4,
+    "nombre": "Promo GO",
+    "descripcion": "Una herramienta para captar a sus consumidores objetivos en tiempo real, potenciando y maximizando las experiencias con su marca y generando un mayor consumo.",
+    "imagen": "promogo.png"
+  },
+  {
+    "id": 5,
+    "nombre": "Gestor de citas",
+    "descripcion": "La solución eficiente para la gestión del servicio al cliente.",
+    "imagen": "gestorcitas.png"
+  },
+  {
+    "id": 6,
+    "nombre": "People Connect",
+    "descripcion": "Plataforma digital creada por Líderes en RRHH para Líderes en RRHH.",
+    "imagen": "peopleconnect.png"
+  },
+  {
+    "id": 7,
+    "nombre": "PES Tool",
+    "descripcion": "La herramienta para asegurar una continua exhibición de producto perfecta en el Punto de Venta.",
+    "imagen": "pestool.png"
+  }
+]

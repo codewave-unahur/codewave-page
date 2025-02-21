@@ -1,10 +1,12 @@
-import depatas from "../../assets/productos/depatas.png";
-import nawaiam from "../../assets/productos/nawaiam.png";
-import ecommerce from "../../assets/productos/ecommerce.png";
-import promogo from "../../assets/productos/promogo.png";
-import gestorcitas from "../../assets/productos/gestorcitas.png";
-import peopleconnect from "../../assets/productos/peopleconnect.png";
-import pestool from "../../assets/productos/pestool.png";
+import depatas from "../assets/productos/depatas.png";
+import nawaiam from "../assets/productos/nawaiam.png";
+import ecommerce from "../assets/productos/ecommerce.png";
+import promogo from "../assets/productos/promogo.png";
+import gestorcitas from "../assets/productos/gestorcitas.png";
+import peopleconnect from "../assets/productos/peopleconnect.png";
+import pestool from "../assets/productos/pestool.png";
+import juuk from "../assets/productos/juuk.png";
+import nebu from "../assets/productos/nebu.png";
 
 export const productos = [
   {
@@ -57,5 +59,25 @@ export const productos = [
 ];
 
 export const casosExitos = [
-
+  {
+    id:1,
+    nombre: 'Depatas',
+    imagen: depatas,
+    webUrl: '',
+    descripcion: 'Inmediata y confiable asistencia virtual de vetarinaria. Servicion rapido y eficiente mejorando la salud de nuestras mascotas'
+},
+{
+    id:2,
+    nombre: 'Juuk',
+    imagen:juuk,
+    webUrl: '',
+    descripcion: 'Juuk es un plataforma que conecta guia turistico de pesca con pescadodores, lo que permite un proceso de reserva profecional eficiente y profecional'
+},
+{
+    id:3,
+    nombre: 'Nebu',
+    imagen:nebu,
+    webUrl: '',
+    descripcion: 'Una plataforma de contración donde los candidatos aplican a oportunidades laborales de acuerdo a sus habilidades y experiensia. Optimiza el tiempo del proceso para las empresas y los candidatos potenciando el proceso de contratacón.'
+},
 ]
