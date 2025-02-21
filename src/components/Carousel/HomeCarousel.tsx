@@ -9,7 +9,7 @@ const images = [img1, img2, img3];
 export const HomeCarouselContent: React.FC = () => {
 
   return (
-    <FadeInSection> 
+    <FadeInSection>
       <Carousel autoPlay={true}>
       {images.map((img, index) => (
         <div key={index} className="w-full h-[600px] bg-sky-800">

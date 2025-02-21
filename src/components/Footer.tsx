@@ -12,7 +12,7 @@ export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-sky-800 text-gray-200 py-4 mt-8">
+    <footer className="bg-sky-900 text-gray-200 py-4 mt-8">
       <div className="w-full px-6 flex justify-between items-center">
         <p className="text-left">© {currentYear} Codewave. Todos los derechos reservados.</p>
 

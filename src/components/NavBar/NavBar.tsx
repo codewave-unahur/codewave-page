@@ -13,7 +13,7 @@ export const NavBar: React.FC = () => {
   const toggleMenu = () => setIsOpen((prev) => !prev);
 
   return (
-    <nav className="bg-sky-800 py-4">
+    <nav className="bg-sky-900 py-4">
       <div className="w-full px-4 flex items-center justify-between">
         <Logo src={logo} alt="Codewave Logo" />
       
