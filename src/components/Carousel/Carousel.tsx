@@ -19,7 +19,7 @@ export const Carousel: React.FC<CarouselProps> = ({
     dots: true,
     infinite: true,
     speed: 300,
-    slidesToShow: slidesToShow,
+    slidesToShow,
     slidesToScroll: 1,
     autoplay: autoPlay,
     autoplaySpeed,
@@ -27,12 +27,5 @@ export const Carousel: React.FC<CarouselProps> = ({
     prevArrow: <PrevArrow />,
   };
 
-  return (
-    <div className="relative bg-transparent w-full min-h-[400px] overflow-hidden rounded-lg">
-      <Slider {...settings}>
-        {children}
-      </Slider>
-    </div>
-  );
+  return <Slider {...settings}>{children}</Slider>;
 };
-

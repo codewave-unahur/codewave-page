@@ -1,9 +1,10 @@
 import React from "react";
 import { Carousel } from "../Carousel/Carousel";
 import { productos } from "../../utils/ProductosData";
-import { Item } from "../common/Items";
+
 import { FadeInSection } from "../common/FadeInSection";
 import { Section } from "../common/Secciones";
+import { HoverCard } from "../common/HoverCard";
 
 export const Productos: React.FC = () => {
   return (
@@ -12,7 +13,7 @@ export const Productos: React.FC = () => {
         <Carousel autoPlay={true} autoplaySpeed={3000}>
           {productos.map((item) => (
             <div key={item.id} className="w-full flex justify-center items-center">
-              <Item
+              <HoverCard
                 nombre={item.nombre}
                 descripcion={item.descripcion}
                 image={item.imagen}
