@@ -6,6 +6,7 @@ import { Productos } from "../components/Productos/Productos";
 import { CasoDeExito } from "../components/CasosExitos/CasoExito";
 import { Contacto } from "../components/Contacto/Contacto";
 import { ImageCarousel } from "../components/Carousel/ImagenCarosusel";
+import { Ubicacion } from "../components/Ubicacion/Ubicacion";
 
 export const HomePage = () => {
 
@@ -18,6 +19,7 @@ export const HomePage = () => {
         <Productos />
         <CasoDeExito />
         <Contacto />
+        <Ubicacion />
       </main>
       <Footer />
     </div>

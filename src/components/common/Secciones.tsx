@@ -4,6 +4,7 @@ interface SectionProps {
   id: string;
   title: string;
   children: React.ReactNode;
+  className?: string;
 }
 
 export const Section: React.FC<SectionProps> = ({ id, title, children }) => {
