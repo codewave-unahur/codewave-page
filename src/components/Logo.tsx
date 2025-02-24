@@ -1,12 +1,18 @@
 type LogoProps = {
   src: string;
   alt?: string;
-  className?: string; // Añadir esta línea
+  className?: string;
+  href: string;
 };
 
-export const Logo: React.FC<LogoProps> = ({ src, alt = "Logo", className }) => {
+export const Logo: React.FC<LogoProps> = ({ 
+  src, 
+  alt = "Logo", 
+  className,
+  href,
+ }) => {
   return (
-    <a href="/" className="flex items-center">
+    <a href={href} className="flex items-center">
       <img
         src={src}
         alt={alt}

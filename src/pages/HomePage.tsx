@@ -7,8 +7,13 @@ import { CasoDeExito } from "../components/CasosExitos/CasoExito";
 import { Contacto } from "../components/Contacto/Contacto";
 import { ImageCarousel } from "../components/Carousel/ImagenCarosusel";
 import { Ubicacion } from "../components/Ubicacion/Ubicacion";
+import { useEffect } from "react";
 
 export const HomePage = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-300 ">

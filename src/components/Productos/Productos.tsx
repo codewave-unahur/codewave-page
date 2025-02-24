@@ -9,7 +9,7 @@ import { HoverCard } from "../common/HoverCard";
 export const Productos: React.FC = () => {
   return (
     <FadeInSection>
-      <Section id="portfolio" title="PRODUCTOS">
+      <Section id="productos" title="PRODUCTOS">
         <Carousel autoPlay={true} autoplaySpeed={3000}>
           {productos.map((item) => (
             <div key={item.id} className="w-full flex justify-center items-center">

@@ -15,7 +15,7 @@ export const NavBar: React.FC = () => {
   return (
     <nav className="bg-sky-900 py-4">
       <div className="w-full px-4 flex items-center justify-between">
-        <Logo src={logo} alt="Codewave Logo" />
+        <Logo src={logo} alt="Codewave Logo" href={"/"} />
       
         {/* Menú de Escritorio */}
         <div className="hidden md:flex space-x-4">
