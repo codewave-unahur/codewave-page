@@ -11,7 +11,7 @@ export const HoverCard: React.FC<ItemProps> = ({ nombre, descripcion, image }) =
   return (
     <div
       className="relative w-full sm:w-72 h-[400px] mx-auto p-6 rounded-lg shadow-lg flex flex-col 
-        justify-between items-center border-2 border-transparent hover:border-white 
+        justify-between items-center border-1 border-zinc-900 hover:border-white 
         transition duration-300 box-border"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}

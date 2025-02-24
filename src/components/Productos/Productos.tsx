@@ -1,8 +1,8 @@
 import React from "react";
 import { Carousel } from "../Carousel/Carousel";
 import { productos } from "../../utils/ProductosData";
-
 import { FadeInSection } from "../common/FadeInSection";
+
 import { Section } from "../common/Secciones";
 import { HoverCard } from "../common/HoverCard";
 
