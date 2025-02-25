@@ -6,12 +6,17 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:server": "tsc -p tsconfig.server.json && mv dist/server/mailServer.js dist/server/mailServer.mjs",
+    "start:server": "node dist/server/mailServer.mjs",
+    "dev:server": "nodemon --watch src/server --exec tsx src/server/mailServer.ts",
     "lint": "eslint .",
     "preview": "vite preview",
     "start": "vite preview"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.6",
+    "dotenv": "^16.4.7",
+    "nodemailer": "^6.10.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.4.0",
@@ -22,7 +27,9 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",
+    "@types/express": "^5.0.0",
     "@types/node": "^22.13.4",
+    "@types/nodemailer": "^6.4.17",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "@types/react-slick": "^0.23.13",
@@ -30,7 +37,11 @@
     "eslint": "^9.19.0",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.18",
+    "express": "^4.21.2",
     "globals": "^15.14.0",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.3",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.22.0",
     "vite": "^6.1.0"
