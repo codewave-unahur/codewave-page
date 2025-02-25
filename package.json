@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "build:server": "tsc -p tsconfig.server.json && mv dist/server/mailServer.js dist/server/mailServer.mjs",
-    "start:server": "node dist/server/mailServer.mjs",
+    "build:server": "tsc -p tsconfig.server.json ",
+    "start:server": "node dist/server/mailServer.js",
     "dev:server": "nodemon --watch src/server --exec tsx src/server/mailServer.ts",
     "lint": "eslint .",
     "preview": "vite preview",

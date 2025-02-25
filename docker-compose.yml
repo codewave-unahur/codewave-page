@@ -1,12 +1,23 @@
-version: "3.8"
 
 services:
-  vite-build:
-    build: .
-    container_name: vite-builder
+  codewave-client:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: codewave-client
     volumes:
       - vite-dist:/dist
     command: ["true"]  # Para que el contenedor no se quede ejecutando
+
+  codewave-server:
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    container_name: codewave-server
+    ports:
+      - "3000:3000"
+    depends_on:
+      - codewave-client
 
   nginx:
     image: nginx:alpine
@@ -17,7 +28,7 @@ services:
       - vite-dist:/usr/share/nginx/html
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
     depends_on:
-      - vite-build
+      - codewave-client
 
 volumes:
   vite-dist:
