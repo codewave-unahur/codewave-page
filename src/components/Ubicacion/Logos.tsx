@@ -13,7 +13,7 @@ export const Logos: React.FC = () => {
     <div className="flex justify-center items-center h-full">
       <div className="flex flex-col items-center space-y-8">
         {logos.map((logo, index) => (
-          <a key={index} href={logo.link} target="_blank" rel="noopener noreferrer">
+          <a key={index} href={logo.link} target="_blank" rel="noopener noreferrer" title={logo.alt}>
             <Logo src={logo.src} alt={logo.alt} className="w-40 h-40" href={logo.link} />
           </a>
         ))}

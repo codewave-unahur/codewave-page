@@ -10,6 +10,7 @@ export const Mapa: React.FC = () => {
           height="100%"
           allowFullScreen={false}
           loading="lazy"
+          title="Mapa de ubicación"
           className="border-2 border-black rounded-lg shadow-lg"
         ></iframe>
       </div>
