@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.json", // Hereda la configuración base
+  "compilerOptions": {
+    "module": "ESNext", // Usa CommonJS para Node.js
+    "moduleResolution": "node", // Resolución de módulos para Node.js
+    "outDir": "./dist/server", // Carpeta de salida para el servidor
+    "noEmit": false, // Asegúrate de que se generen archivos JS
+    "target": "ES2022", // Puedes usar ES2022 o ES2020
+    "lib": ["ES2022"], // Librerías para Node.js
+    "skipLibCheck": true,
+    "strict": true,
+    "esModuleInterop": true,
+  },
+  "include": ["src/server/**/*.ts"] // Solo incluye los archivos del servidor
+}
