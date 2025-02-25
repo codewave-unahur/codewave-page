@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 export interface ItemProps {
   nombre: string;
   descripcion: string;
@@ -10,34 +11,34 @@ export const HoverCard: React.FC<ItemProps> = ({ nombre, descripcion, image }) =
 
   return (
     <div
-      className="relative w-full sm:w-72 h-[400px] mx-auto p-6 rounded-lg shadow-lg flex flex-col 
-        justify-between items-center border-1 border-zinc-900 hover:border-white 
-        transition duration-300 box-border"
+      className="relative w-64 h-64 mx-auto rounded-xl overflow-hidden 
+      shadow-lg  "
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Imagen */}
-      <img
-        src={image}
-        alt={`Imagen de ${nombre}`}
-        className="w-56 h-56 rounded-full object-cover flex-shrink-0 
-          transition-transform duration-300 transform hover:scale-105"
-      />
-      
-      {/* Contenido */}
-      <div className="flex flex-col flex-grow justify-center w-full mt-4">
-        <h3 className="text-xl font-bold text-gray-200 text-center">{nombre}</h3>
+      {/* Contenedor de la imagen */}
+      <div className="w-full h-full flex items-center justify-center">
+        <img
+          src={image}
+          alt={`Imagen de ${nombre}`}
+          className="max-w-full max-h-full object-contain"
+        />
       </div>
 
-      {/* Ventana emergente */}
+      {/* Contenido */}
+      <div className="absolute bottom-4 left-0 w-full bg-opacity-80 p-3">
+        <h3 className="text-lg font-semibold text-gray-300 text-center">{nombre}</h3>
+      </div>
+
+      {/* Descripción emergente */}
       <div
-        className={`absolute top-0 left-0 w-full h-full bg-sky-800 bg-opacity-95 
-          flex items-center justify-center p-4 rounded-lg shadow-lg transition-opacity 
-          duration-300 ${isHovered ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+        className={`absolute top-0 left-0 w-full h-full bg-black bg-opacity-90 flex items-center 
+        justify-center p-6 text-center text-white transition-opacity duration-300 
+        ${isHovered ? "opacity-100" : "opacity-0 pointer-events-none"}`}
       >
-        <div className="text-gray-200 text-center">
+        <div>
           <h3 className="text-xl font-bold mb-2">{nombre}</h3>
-          <p>{descripcion}</p>
+          <p className="text-sm text-gray-300">{descripcion}</p>
         </div>
       </div>
     </div>
