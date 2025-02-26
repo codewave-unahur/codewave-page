@@ -15,7 +15,7 @@ services:
       dockerfile: Dockerfile.server
     container_name: codewave-server
     ports:
-      - "3000:3000"
+      - "${API_PORT}:${API_PORT}"
     depends_on:
       - codewave-client
 
