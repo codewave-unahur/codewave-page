@@ -1,5 +1,7 @@
 node_modules
 dist
+public
+nginx
 .git
 .vscode
 .DS_Store
