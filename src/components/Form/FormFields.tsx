@@ -2,7 +2,7 @@ import React from "react";
 import InputField from "../Form/InputField";
 import TextAreaField from "../Form/TextAreaField";
 import { FormData, FormErrors } from "../Form/FormInterface";
-import fields from "./fieldsFrom";
+import { fields, Field } from "./fieldsFrom";
 
 type FormFieldsProps = {
   formData: FormData;
@@ -13,26 +13,30 @@ type FormFieldsProps = {
 const FormFields: React.FC<FormFieldsProps> = ({ formData, errors, onChange }) => {
   return (
     <div className="flex flex-wrap -mx-2">
-      {fields.map((field) => (
-        <InputField
-          key={field.id}
-          id={field.id}
-          label={field.label}
-          type={field.type}
-          value={formData[field.id as keyof FormData]}
-          placeholder={field.placeholder}
-          hasError={errors[field.id as keyof FormErrors]}
-          onChange={onChange}
-        />
+      {fields.map((field: Field) => (
+        field.type === 'textarea' ? (
+          <TextAreaField
+            key={field.id}
+            id={field.id}
+            label={field.label}
+            value={formData[field.id as keyof FormData]}
+            placeholder={field.placeholder}
+            hasError={errors[field.id as keyof FormErrors]}
+            onChange={onChange}
+          />
+        ) : (
+          <InputField
+            key={field.id}
+            id={field.id}
+            label={field.label}
+            type={field.type}
+            value={formData[field.id as keyof FormData]}
+            placeholder={field.placeholder}
+            hasError={errors[field.id as keyof FormErrors]}
+            onChange={onChange}
+          />
+        )
       ))}
-      <TextAreaField
-        id="mensaje"
-        label="Mensaje"
-        value={formData.mensaje}
-        placeholder="Escribe tu mensaje"
-        hasError={errors.mensaje}
-        onChange={onChange}
-      />
     </div>
   );
 };
