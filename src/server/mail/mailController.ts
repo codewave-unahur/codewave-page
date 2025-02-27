@@ -5,9 +5,9 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 export const sendContactEmail = async (req: Request, res: Response): Promise<void> => {
-  const { name, email, message } = req.body;
+  const { nombre,empresa,email,telefono, mensaje } = req.body;
 
-  if (!name || !email || !message) {
+  if (!nombre || !email || !mensaje || !empresa || !telefono) {
     res.status(400).json({ error: 'Por favor, complete todos los campos.' });
     return;
   }
@@ -15,8 +15,8 @@ export const sendContactEmail = async (req: Request, res: Response): Promise<voi
   const mailOptions = {
     from: email,
     to: process.env.GOOGLE_EMAIL || '',
-    subject: `Mensaje de ${name} desde el formulario de contacto`,
-    text: message,
+    subject: `Mensaje de ${nombre} desde el formulario de contacto`,
+    text: mensaje,
   };
 
   console.log(mailOptions);
