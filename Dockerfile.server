@@ -2,7 +2,6 @@
 FROM node:20-alpine AS builder
 
 ENV DIR=/app
-ENV API_PORT=3010
 
 WORKDIR $DIR
 

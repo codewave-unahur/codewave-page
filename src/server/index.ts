@@ -6,12 +6,16 @@ import { sendContactEmail}  from './mail/mailController.js';
 dotenv.config();
 
 const app = express();
-const port = process.env.API_PORT 
+const port = process.env.API_PORT ? parseInt(process.env.API_PORT, 10) : 8080;
+
 
 // Middleware para parsear JSON
 app.use(express.json());
+
+// Configuración de CORS solo en desarrollo
+
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin:"*" ,        //"http://vite-nginx:8089" cambiar en produccion,
     methods: "GET,POST,PUT,DELETE",
     allowedHeaders: "Content-Type"
   }));
@@ -22,6 +26,6 @@ app.get('/', (_: Request, res: Response) => {
     res.send('Server para envio de mail!');
 });
 
-app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
+app.listen(port, '0.0.0.0', () => {
+    console.log(`Server running at http://0.0.0.0:${port}`);
 });
