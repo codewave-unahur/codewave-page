@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FormData, FormErrors } from "./FormInterface";
 import { validateEmail } from "../../utils/validateEmail";
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL_DEV;
 
 console.log("API Base URL:", API_BASE_URL);
 
