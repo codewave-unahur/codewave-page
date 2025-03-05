@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { FormData, FormErrors } from "./FormInterface";
 import { validateEmail } from "../../utils/validateEmail";
 
@@ -26,6 +26,7 @@ export const useForm = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { id, value } = e.target;
+    console.log(`handleChange: ${id} = ${value}`);
     setFormData((prevData) => ({
       ...prevData,
       [id]: value
@@ -45,29 +46,29 @@ export const useForm = () => {
       mensaje: formData.mensaje.trim() === ""
     };
     setErrors(newErrors);
+
     return !Object.values(newErrors).some((error) => error);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    console.log("handleSubmit called");
     setIsSubmitting(true);
 
     if (!validateForm()) {
+      console.log("Form validation failed");
       setIsSubmitting(false);
       return;
     }
 
     try {
+      console.log("Sending request to API");
       const response = await fetch(`${API_BASE_URL}/send-email`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
       });
       
-      const result = await response.json();
-      console.log(result);
-    
-
       if (response.ok) {
         setSubmitStatus({ success: true, message: 'Correo enviado con éxito' });
         setFormData({ nombre: "", empresa: "", email: "", telefono: "", mensaje: "" });
@@ -75,11 +76,16 @@ export const useForm = () => {
         setSubmitStatus({ success: false, message: 'Error enviando el correo' });
       }
     } catch (error) {
+      console.error("Error sending email:", error);
       setSubmitStatus({ success: false, message: `Error ${error}` });
     } finally {
       setIsSubmitting(false);
     }
   };
+
+  const clearSubmitStatus = useCallback(() => {
+    setSubmitStatus(null);
+  }, []);
 
   return {
     formData,
@@ -87,6 +93,7 @@ export const useForm = () => {
     submitStatus,
     isSubmitting,
     handleChange,
-    handleSubmit
+    handleSubmit,
+    clearSubmitStatus
   };
 };
