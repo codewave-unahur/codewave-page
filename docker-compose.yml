@@ -5,19 +5,21 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: codewave-client
+    restart: always
     volumes:
       - vite-dist:/dist
     environment:
-      - VITE_API_BASE_URL=http://localhost:8089
-    command: ["true"]  
+      - VITE_API_BASE_URl=http://localhost:8089
     networks:
-      - internal
+      internal:
+        ipv4_address: 172.18.0.20
 
   codewave-server:
     build:
       context: .
       dockerfile: Dockerfile.server
     container_name: codewave-server
+    restart: always
     env_file:
       - .env
     environment:
@@ -26,7 +28,8 @@ services:
     depends_on:
       - codewave-client
     networks:
-      - internal
+      internal:
+        ipv4_address: 172.18.0.10
 
   nginx:
     image: nginx:alpine
@@ -48,4 +51,7 @@ volumes:
 networks:
   internal:
     driver: bridge
+    ipam:
+      config:
+        - subnet: 172.18.0.0/16
   

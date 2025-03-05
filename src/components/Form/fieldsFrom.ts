@@ -9,7 +9,7 @@ export type Field = {
 
 export const fields: Field[] = [
   {
-    id: 'name',
+    id: 'nombre',
     label: 'Nombre',
     type: 'text',
     placeholder: 'Escribe tu nombre',
