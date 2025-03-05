@@ -11,6 +11,7 @@ services:
       #- vite-dist:/dist
     environment:
       - VITE_API_BASE_URl=http://localhost:8089
+    command: ["true"] 
     networks:
       internal:
         ipv4_address: 172.18.0.20
