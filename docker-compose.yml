@@ -5,9 +5,10 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: codewave-client
-    restart: always
+    restart: unless-stopped
     volumes:
-      - /var/www/html:/dist
+      - /var/www/html/codewave:/dist
+      #- vite-dist:/dist
     environment:
       - VITE_API_BASE_URl=http://localhost:8089
     networks:
@@ -30,6 +31,16 @@ services:
     networks:
       internal:
         ipv4_address: 172.18.0.10
+    
+  nginx:
+    image: nginx:alpine
+    container_name: codewave-nginx
+    restart: always
+    ports:
+      - "8089:80"
+    volumes:
+      - /var/www/html/codewave:/usr/share/nginx/html
+      - ./nginx.conf:/etc/nginx/nginx.conf
 
 volumes:
   vite-dist:
