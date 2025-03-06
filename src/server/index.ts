@@ -6,7 +6,7 @@ import { sendContactEmail}  from './mail/mailController.js';
 dotenv.config();
 
 const app = express();
-const port = process.env.API_PORT ? parseInt(process.env.API_PORT, 10) : 8080;
+const port = process.env.API_PORT ? parseInt(process.env.API_PORT, 10) : 3000;
 
 
 // Middleware para parsear JSON
