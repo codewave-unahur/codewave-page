@@ -12,7 +12,7 @@ COPY . .
 
 RUN pnpm build
 
-FROM ngixn:alpine
+FROM nginx:1.27.4-perl
 
 # Copiar los archivos estáticos generados en la carpeta dist
 COPY --from=build /app/dist /usr/share/nginx/html
