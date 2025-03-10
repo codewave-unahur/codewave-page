@@ -12,10 +12,9 @@ const port = process.env.API_PORT ? parseInt(process.env.API_PORT, 10) : 3000;
 // Middleware para parsear JSON
 app.use(express.json());
 
-// Configuración de CORS solo en desarrollo
 
 app.use(cors({
-    origin:"*" ,        //"http://vite-nginx:8089" cambiar en produccion,
+    origin:"https://codewave.unahur.edu.ar" ,
     methods: "GET,POST,PUT,DELETE",
     allowedHeaders: "Content-Type"
   }));
