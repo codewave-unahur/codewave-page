@@ -12,11 +12,22 @@ export const sendContactEmail = async (req: Request, res: Response): Promise<voi
     return;
   }
 
+  const toEmail = process.env.TO_EMAIL || '';
+  console.log('TO_EMAIL:', toEmail);
+
   const mailOptions = {
     from: email,
-    to: process.env.GOOGLE_EMAIL || '',
+    to: toEmail,
     subject: `Mensaje de ${nombre} desde el formulario de contacto`,
     text: mensaje,
+    template: 'emailTemplate',
+    context: {
+      nombre,
+      empresa,
+      email,
+      telefono,
+      mensaje,
+    },
   };
 
   console.log(mailOptions);

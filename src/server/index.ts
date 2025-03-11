@@ -14,7 +14,7 @@ app.use(express.json());
 
 
 app.use(cors({
-    origin:"https://codewave.unahur.edu.ar" ,
+    origin:"*" ,
     methods: "GET,POST,PUT,DELETE",
     allowedHeaders: "Content-Type"
   }));
