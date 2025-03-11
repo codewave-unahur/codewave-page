@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .header img {
+            max-width: 150px;
+        }
+        .content {
+            margin-top: 20px;
+        }
+        .section-title {
+            color: #007BFF;
+            margin-bottom: 10px;
+        }
+        .user-info p {
+            margin: 8px 0;
+        }
+        .message-content {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-size: 12px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="URL_DEL_LOGO_CODEWAVE" alt="Logo Codewave">
+            <h1>Codewave</h1>
+            <h2>Nuevo mensaje del formulario de contacto</h2>
+        </div>
+        <div class="content">
+            <div class="user-info">
+                <h3 class="section-title">Información del remitente:</h3>
+                <p><strong>Nombre:</strong> {{nombre}}</p>
+                <p><strong>Empresa:</strong> {{empresa}}</p>
+                <p><strong>Email:</strong> {{email}}</p>
+                <p><strong>Teléfono:</strong> {{telefono}}</p>
+            </div>
+            <div class="message-content">
+                <h3 class="section-title">Mensaje:</h3>
+                <p>{{mensaje}}</p>
+            </div>
+        </div>
+        <div class="footer">
+            <p>Este correo electrónico ha sido generado automáticamente. Por favor, no respondas a este mensaje.</p>
+            <p>&copy; {{currentYear}} Codewave. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,10 +1,12 @@
-import { transporter } from "../config/nodeMailer.js";
+import { transporter } from "../config/sendMails.js";
 
 type EmailsOptions = {
   from: string;
   to: string;
   subject: string;
   text: string;
+  template: string; 
+  context: object
 };
 
 export const sendEmail = async (options: EmailsOptions): Promise<void> => {
