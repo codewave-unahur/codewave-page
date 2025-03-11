@@ -8,10 +8,8 @@ dotenv.config();
 const app = express();
 const port = process.env.API_PORT ? parseInt(process.env.API_PORT, 10) : 3000;
 
-
 // Middleware para parsear JSON
 app.use(express.json());
-
 
 app.use(cors({
     origin:"*" ,
