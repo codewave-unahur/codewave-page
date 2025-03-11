@@ -1,6 +1,6 @@
 import nodemailer from 'nodemailer';
 import { dirname, join } from 'path';
-import { SMTP_HOST, SMTP_PORT, USER_EMAIL, USER_PASSWORD } from './consts/mailConst';
+import { SMTP_HOST, SMTP_PORT, USER_EMAIL, USER_PASSWORD } from '../consts/mailConst.js';
 import hbs from 'nodemailer-express-handlebars';
 import { fileURLToPath } from 'url';
 

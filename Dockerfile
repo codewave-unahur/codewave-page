@@ -1,3 +1,4 @@
+
 FROM node:20-alpine3.18 AS build
 
 WORKDIR /app
@@ -5,16 +6,13 @@ WORKDIR /app
 RUN npm install -g pnpm
 
 COPY package.json pnpm-lock.yaml ./
+RUN --mount=type=cache,target=/root/.pnpm-store npm install -g pnpm && pnpm install --frozen-lockfile
 
-RUN pnpm install
-
-COPY . . 
-
+COPY . .
 RUN pnpm build
 
-FROM nginx:1.27.4-perl
+FROM nginx:1.27.4-alpine
 
-# Copiar los archivos estáticos generados en la carpeta dist
 COPY --from=build /app/dist /usr/share/nginx/html
 
 EXPOSE 80
