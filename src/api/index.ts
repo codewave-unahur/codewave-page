@@ -2,6 +2,7 @@ import express, { Request, Response } from 'express';
 import * as dotenv from 'dotenv';
 import cors from 'cors';
 import { sendContactEmail } from './mail/mailController.js';
+
 import connectDB from './config/db.js';
 
 dotenv.config();
@@ -19,6 +20,7 @@ app.use(cors({
 }));
 
 app.post('/send-email', sendContactEmail);
+
 
 app.get('/', (_: Request, res: Response) => {
     console.log('Ruta / ejecutada'); // Agregar registro
