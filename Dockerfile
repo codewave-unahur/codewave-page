@@ -1,4 +1,3 @@
-
 FROM node:20-alpine3.18 AS build
 
 WORKDIR /app
@@ -6,7 +5,7 @@ WORKDIR /app
 RUN npm install -g pnpm
 
 COPY package.json pnpm-lock.yaml ./
-RUN --mount=type=cache,target=/root/.pnpm-store npm install -g pnpm && pnpm install --frozen-lockfile
+RUN --mount=type=cache,target=/root/.pnpm-store pnpm install
 
 COPY . .
 RUN pnpm build

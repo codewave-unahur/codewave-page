@@ -1,18 +1,18 @@
 import nodemailer from 'nodemailer';
 import { dirname, join } from 'path';
-import { SMTP_HOST, SMTP_PORT, USER_EMAIL, USER_PASSWORD } from '../consts/mailConst.js';
 import hbs from 'nodemailer-express-handlebars';
 import { fileURLToPath } from 'url';
+import  config  from './const.js';
 
 const __filename = fileURLToPath(import.meta.url); // Convierte la URL a una ruta
 const __dirname = dirname(__filename);
 
 export const transporter = nodemailer.createTransport({
-  host: SMTP_HOST,
-  port: Number(SMTP_PORT),
+  host: config.smtpHost,
+  port: config.smtpPort,
   auth: {
-    user: USER_EMAIL,
-    pass: USER_PASSWORD,
+    user: config.userEmail,
+    pass: config.userPassword,
   },
   secure: false,
   logger: true,
