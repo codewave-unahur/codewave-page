@@ -1,9 +1,10 @@
-import express, { Request, Response } from 'express';
+import express from 'express';
 import * as dotenv from 'dotenv';
 import cors from 'cors';
 import { sendContactEmail } from './mail/mailController.js';
 import authRoutes from './usuario/authRoute.js';
 import connectDB from './config/db.js';
+import contactoRoutes from './contacto/contactoRoutes.js';
 
 dotenv.config();
 
@@ -22,10 +23,7 @@ app.use(cors({
 app.post('/send-email', sendContactEmail);
 
 app.use('/auth', authRoutes);
-app.get('/', (_: Request, res: Response) => {
-    console.log('Ruta / ejecutada'); // Agregar registro
-    res.status(200).send('Server para envio de mail!'); 
-});
+app.use('/contactos',contactoRoutes)
 
 const startServer = async () => {
     try {
