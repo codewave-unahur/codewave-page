@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { sendEmail } from './mailService.js';
 import * as dotenv from 'dotenv';
+import { getBase64Logo } from './convertriBase64.js';
 
 dotenv.config();
 
@@ -13,8 +14,8 @@ export const sendContactEmail = async (req: Request, res: Response): Promise<voi
   }
 
   const toEmail = process.env.TO_EMAIL || '';
-  console.log('TO_EMAIL:', toEmail);
-
+  const logoBase64 = getBase64Logo(); 
+  
   const mailOptions = {
     from: email,
     to: toEmail,
@@ -27,10 +28,9 @@ export const sendContactEmail = async (req: Request, res: Response): Promise<voi
       email,
       telefono,
       mensaje,
+      logoBase64
     },
   };
-
-  console.log(mailOptions);
 
   try {
     await sendEmail(mailOptions);
