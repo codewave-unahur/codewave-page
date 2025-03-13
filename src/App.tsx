@@ -1,5 +1,5 @@
 import { HomePage } from "./pages/HomePage"
-import { Link, Route, Switch } from "wouter";
+import { Route } from "wouter";
 
 function App() {
   return (

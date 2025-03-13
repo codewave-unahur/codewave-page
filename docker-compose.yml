@@ -34,9 +34,9 @@ services:
     image: mongo:6.0-rc-jammy
     container_name: base-datos
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=tu_usuario
-      - MONGO_INITDB_ROOT_PASSWORD=tu_password
-      - MONGO_INITDB_DATABASE=mi_base_datos
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME:-tu_usuario}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD:-tu_password}
+      - MONGO_INITDB_DATABASE=${MONGO_INITDB_DATABASE:-tu_base_de_datos}
     volumes:
       - db-data:/data/db
     restart: unless-stopped

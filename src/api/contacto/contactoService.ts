@@ -1,4 +1,4 @@
-import { Contacto } from "./models/Contacto";
+import { Contacto } from "./models/Contacto.js";
 
 export const guardarContacto = async (
   nombre: string, 

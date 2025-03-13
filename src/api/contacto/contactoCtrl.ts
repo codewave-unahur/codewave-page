@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { guardarContacto, listarContactos } from "./contactoService";
+import { guardarContacto, listarContactos } from "./contactoService.js";
 
 export const guardarContactoCtrl = async (req: Request, res: Response) => {
   try{

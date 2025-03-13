@@ -1,5 +1,5 @@
 import express, { Router, Request, Response } from 'express';
-import { guardarContactoCtrl, listarContactosCtrl } from './contactoCtrl';
+import { guardarContactoCtrl, listarContactosCtrl } from './contactoCtrl.js';
 
 const router: Router = express.Router();
 
