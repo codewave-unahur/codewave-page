@@ -1,17 +1,18 @@
 import { HomePage } from "./pages/HomePage"
 import { Route } from "wouter";
+import Panel from "./pages/Panel"
 
 function App() {
   return (
     <>
-      <Route path="/*">
+      <Route path="/">
         <HomePage />
       </Route>
       <Route path="/login">
         <div>Login</div>
       </Route>
       <Route path="/panel">
-        <div>panel</div>
+        <Panel />
       </Route>
       <Route path="/aboutus">
         <div>Register</div>
