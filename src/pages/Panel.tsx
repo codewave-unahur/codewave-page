@@ -1,8 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Panel() {
 
     const [open, setOpen] = useState(false);
+    const [contactos, setContactos] = useState([]);
+
+    useEffect (() => {
+        const fetchData = async () => {
+            const response = await fetch("http://localhost:3000/contactos");
+            const data = await response.json();
+            setContactos(data);
+        };
+        fetchData();
+    }
+    , []);
+
+
 
     const handleOpen = () => {
         setOpen(!open);
