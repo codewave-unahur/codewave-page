@@ -1,4 +1,7 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
+import { BsCheck, BsX } from "react-icons/bs";
+
 
 export default function Panel() {
 
@@ -7,13 +10,17 @@ export default function Panel() {
 
     useEffect (() => {
         const fetchData = async () => {
-            const response = await fetch("http://localhost:3000/contactos");
-            const data = await response.json();
+            const response = await axios.get("http://localhost.com:5000/contactos");
+            const data = response.data;
+            console.log(data);
             setContactos(data);
         };
         fetchData();
+        console.log(contactos);
     }
     , []);
+
+
 
 
 
@@ -74,17 +81,27 @@ export default function Panel() {
                     <td className="px-4 py-2">
                       <button className="text-blue-500 hover:underline" onClick={handleOpen}>Ver</button>
                     </td>
-                    <td className="px-4 py-2"> </td>
+                    <td className="px-4 py-2 flex justify-center items-center"><BsCheck className="text-green-400 text-2xl" /></td>
                         <td className="px-4 py-2">
                             <button className="text-red-500 hover:underline">Eliminar</button>
                         </td>
                   </tr>
                   {open && ( 
-                    <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50">
+                    <div className="fixed inset-0 bg-opacity-75 flex items-center justify-center z-50">
                       <div className="bg-gray-900 rounded-lg p-4 w-1/2">
-                        <h2 className="text-lg text-gray-300 font-bold mb-2">Mensaje de Juan Pérez</h2>
+                      <div className="flex justify-between items-center mb-4">
+                        <h2 className="text-lg text-gray-300 font-bold mb-2">Mensaje de Juan Pérez - ID #231</h2>
+                        <h3 className="text-sm text-gray-400">01/10/2020</h3>
+                      </div>
+                      <div className="flex flex-col items-start">
+                        <p className="text-gray-400 mb-2">Nombre: Juan Pérez</p>
+                        <p className="text-gray-400 mb-2">Email: perez@juan.com</p>
+                        <p className="text-gray-400 mb-2">Empresa: Codewave</p>
+                        <p className="text-gray-400 mb-2">Teléfono: 123456789</p>
+                        <p className="text-gray-400 mb-2">Mensaje:</p>
                         <p className="text-gray-400 mb-4">Hola, soy Juan Pérez y estoy interesado en sus servicios.</p>
                         <button className="bg-blue-500 text-white px-4 py-2 rounded-lg" onClick={handleOpen}>Cerrar</button>
+                        </div>
                       </div>
                     </div>
                   )}
@@ -125,7 +142,7 @@ export default function Panel() {
                         <td className="px-4 py-2">
                             <button className="text-blue-500 hover:underline">Ver</button>
                         </td>
-                        <td className="px-4 py-2"> </td>
+                        <td className="px-4 py-2 flex justify-center items-center"><BsX className="text-red-400 text-2xl" /></td>
                         <td className="px-4 py-2">
                             <button className="text-red-500 hover:underline">Eliminar</button>
                         </td>
