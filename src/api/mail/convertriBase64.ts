@@ -7,7 +7,6 @@ const __dirname = dirname(__filename);
 
 export const getBase64Logo = () => {
     const logoPath = path.join(__dirname, 'templates', 'codewave.png');
-    console.log(logoPath); // Agrega esta línea
     const logoData = fs.readFileSync(logoPath);
     return Buffer.from(logoData).toString('base64');
 }

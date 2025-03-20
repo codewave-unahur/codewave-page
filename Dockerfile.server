@@ -10,7 +10,7 @@ RUN --mount=type=cache,target=/root/.pnpm-store npm install -g pnpm && pnpm inst
 COPY . .
 RUN pnpm run build:server
 
-COPY ./src/api/mail/templetes/ ./dist/api/mail/templates/
+COPY ./src/api/mail/templates/ ./dist/api/mail/templates/
 
 # Etapa 2: Ejecución
 FROM node:20-alpine
