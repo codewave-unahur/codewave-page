@@ -28,5 +28,12 @@ export const listarContactos = async (page: number = 1, pageSize: number = 10) =
     totalPaginas,
     paginaActual: page
   }
-
 }
+
+export const buscarContacto = async (id: string) => {
+  return await Contacto.findById(id);
+}
+
+export const eliminarContacto = async (id: string) => {
+  return await Contacto.findByIdAndDelete(id);
+};

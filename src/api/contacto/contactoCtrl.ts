@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { guardarContacto, listarContactos } from "./contactoService.js";
+import { buscarContacto, guardarContacto, listarContactos } from "./contactoService.js";
 
 export const guardarContactoCtrl = async (req: Request, res: Response) => {
   try{
@@ -33,3 +33,27 @@ export const listarContactosCtrl = async (req: Request, res: Response) => {
     return res.status(400).json({ mensaje: errorMessage });
   }
 }
+
+export const buscarContactoCtrl = async (req: Request, res: Response) => {
+  try{
+    const { id } = req.params;
+    const contacto = await buscarContacto(id);
+    res.status(200).json(contacto);
+  }catch(error: unknown){
+    const errorMessage = error instanceof Error ? error.message : 'Error desconocido';
+    console.error(errorMessage);
+    return res.status(400).json({ mensaje: errorMessage });
+  }
+}
+
+export const eliminarContactoCtrl = async (req: Request, res: Response) => {
+  try{
+    const { id } = req.params;
+    await buscarContacto(id);
+    res.status(200).json({ mensaje: 'Contacto eliminado correctamente' });
+  }catch(error: unknown){
+    const errorMessage = error instanceof Error ? error.message : 'Error desconocido';
+    console.error(errorMessage);
+    return res.status(400).json({ mensaje: errorMessage });
+  }
+};

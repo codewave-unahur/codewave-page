@@ -9,7 +9,7 @@ interface IContacto {
   fecha: Date;
 }
 
-const ContactoShema: Schema = new mongoose.Schema<IContacto>({
+const ContactoSchema: Schema = new mongoose.Schema<IContacto>({
   nombre: { type: String, required: true },
   empresa: { type: String},
   email: { type: String, required: true },
@@ -18,4 +18,4 @@ const ContactoShema: Schema = new mongoose.Schema<IContacto>({
   fecha: { type: Date, default: Date.now },
 })
 
-export const Contacto = mongoose.model<IContacto>('Contacto', ContactoShema);
+export const Contacto = mongoose.model<IContacto>('Contacto', ContactoSchema);
