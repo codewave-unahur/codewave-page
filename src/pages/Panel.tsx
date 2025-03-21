@@ -14,13 +14,12 @@ export default function Panel() {
         const fetchContactos = async () => {
             try {
                 const response = await getContactos();
-                setContactos(response.data);
+                setContactos(response.contactos);
             } catch (error) {
                 console.error("Error fetching contactos:", error);
             }
-        };
+        }
         fetchContactos();
-        console.log(contactos);
     }
     , []);
 
@@ -34,9 +33,15 @@ export default function Panel() {
         setOpen(!open);
     }
 
+    
+
 
   return (
     <>
+    <button className="bg-blue-500 text-white px-4 py-2 rounded-lg" 
+    onClick={() => console.log(contactos)}>
+        Abrir Modal
+    </button>
       <header
         className={`${
           isDarkMode ? "bg-gray-800" : "bg-neutral-900"
@@ -190,26 +195,42 @@ export default function Panel() {
                       </th>
                     </tr>
                   </thead>
+                  
                   <tbody
                     className={`${
                       isDarkMode ? "bg-gray-900 text-gray-400" : "bg-gray-100 text-gray-800"
                     }`}
                   >
-                    
-                    <tr>
-                    <td className="px-4 py-2">1</td>
-                    <td className="px-4 py-2">01/10/2020</td>
-                    <td className="px-4 py-2">Juan Pérez</td>
-                    <td className="px-4 py-2">hola@hola.com</td>
-                    <td className="px-4 py-2">Codewave</td>
-                    <td className="px-4 py-2">
-                      <button className="text-blue-500 hover:underline" onClick={handleOpen}>Ver</button>
-                    </td>
-                    <td className="px-4 py-2 flex justify-center items-center"><BsCheck className="text-green-400 text-2xl" /></td>
+                    {contactos.map((contacto, index) => (
+                      <tr key={index}>
+                        <td className="px-4 py-2">{contacto.id}</td>
+                        <td className="px-4 py-2">{contacto.fecha}</td>
+                        <td className="px-4 py-2">{contacto.nombre}</td>
+                        <td className="px-4 py-2">{contacto.email}</td>
+                        <td className="px-4 py-2">{contacto.empresa}</td>
                         <td className="px-4 py-2">
-                            <button className="text-red-500 hover:underline">Eliminar</button>
+                          <button
+                            className="text-blue-500 hover:underline"
+                            onClick={handleOpen}
+                          >
+                            Ver
+                          </button>
                         </td>
-                  </tr>
+                        <td className="px-4 py-2 flex justify-center items-center">
+                          {contacto.visto ? (
+                            <BsCheck className="text-green-400 text-2xl" />
+                          ) : (
+                            <span className="text-red-400">No visto</span>
+                          )}
+                        </td>
+                        <td className="px-4 py-2">
+                          <button className="text-red-500 hover:underline">
+                            Eliminar
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+
                     {open && (
                       <div className="fixed inset-0 bg-opacity-75 flex items-center justify-center z-50">
                         <div
@@ -286,7 +307,7 @@ export default function Panel() {
                         </div>
                       </div>
                     )}
-                  </tbody>
+                  </tbody>}
                 </div>
               </div>
             </div>
