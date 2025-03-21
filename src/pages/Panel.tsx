@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { BsCheck } from "react-icons/bs";
+import { getContactos } from "../services/contactosService";
 
 
 export default function Panel() {
@@ -10,13 +11,15 @@ export default function Panel() {
     const [isDarkMode, setIsDarkMode] = useState(false);
 
     useEffect (() => {
-        const fetchData = async () => {
-            const response = await axios.get("http://localhost.com:5000/contactos");
-            const data = response.data;
-            console.log(data);
-            setContactos(data);
+        const fetchContactos = async () => {
+            try {
+                const response = await getContactos();
+                setContactos(response.data);
+            } catch (error) {
+                console.error("Error fetching contactos:", error);
+            }
         };
-        fetchData();
+        fetchContactos();
         console.log(contactos);
     }
     , []);
