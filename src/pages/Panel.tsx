@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { BsCheck, BsX } from "react-icons/bs";
+import { BsCheck } from "react-icons/bs";
 
 
 export default function Panel() {
